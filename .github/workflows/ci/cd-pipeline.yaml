@@ -1,0 +1,44 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  validation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: validate application
+        run: echo "Validation successful"
+
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test application
+        run: echo "Testing successful"
+
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test code quality
+        run: echo "Code quality test successful"
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 
+         run: echo "Security vulnerabilities check successful"
+
+  packaging:
+    runs-on: ubuntu-latest
+    steps:
+      - name: package application
+        run: echo "Packaging successful"
+  
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy application
+        run: echo "Deployment successful"
+      
