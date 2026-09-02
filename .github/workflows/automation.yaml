@@ -40,8 +40,8 @@ jobs:
         run: echo "Security vulnerabilities check successful"
 
   packaging:
-    runs-on: ubuntu-latest
     needs: [ security, validation, quality, testing ]
+    runs-on: ubuntu-latest
     steps:
       - name: package application
         run: echo "Packaging successful"
