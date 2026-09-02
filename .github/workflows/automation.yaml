@@ -21,20 +21,20 @@ jobs:
 
   quality:
     runs-on: ubuntu-latest
-    needs: [ testing, validation ]
+    needs: testing
     steps:
       - name: test code quality
         run: echo "Code quality test successful"
 
   security:
     runs-on: ubuntu-latest
-    needs: [testing, quality ]
+    needs: quality
     steps:
       - name: security vulnerabilities check
         run: echo "Security vulnerabilities check successful"
 
   packaging:
-    needs: [ security, validation, quality, testing ]
+    needs: security
     runs-on: ubuntu-latest
     steps:
       - name: package application
@@ -42,6 +42,7 @@ jobs:
   
   deployment:
     runs-on: ubuntu-latest
+    needs: packaging
     steps:
       - name: deploy application
         run: echo "Deployment successful"
