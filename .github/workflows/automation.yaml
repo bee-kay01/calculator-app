@@ -21,14 +21,20 @@ jobs:
 
   quality:
     runs-on: ubuntu-latest
-    needs: testing
+    needs:
+      - testing
+      - validation
     steps:
       - name: test code quality
         run: echo "Code quality test successful"
 
   security:
     runs-on: ubuntu-latest
-    needs: quality
+    needs: 
+      - validation
+      - quality
+      - testing
+
     steps:
       - name: security vulnerabilities check
         run: echo "Security vulnerabilities check successful"
