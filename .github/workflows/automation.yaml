@@ -1,12 +1,6 @@
 name: CI/CD Pipeline
 
 on:
-  workflow_dispatch:
-    inputs:
-      run-quality:
-        description: "Run Quality"
-        required: true
-        type: boolean
   push:
     branches:
       - main
@@ -34,8 +28,7 @@ jobs:
 
   security:
     runs-on: ubuntu-latest
-    needs: [ quality, testing ] 
-    if : ${{ github.event.inputs.run-quality == 'false' }}
+    needs: [ quality, testing ]
     steps:
       - name: security vulnerabilities check
         run: echo "Security vulnerabilities check successful"
