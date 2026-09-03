@@ -35,7 +35,7 @@ jobs:
   security:
     runs-on: ubuntu-latest
     needs: [ quality, testing ] 
-    if : ${{ github.event.inputs.run-quality == 'true' }}
+    if : ${{ github.event.inputs.run-quality == 'false' }}
     steps:
       - name: security vulnerabilities check
         run: echo "Security vulnerabilities check successful"
