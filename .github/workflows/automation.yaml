@@ -37,7 +37,7 @@ jobs:
   security:
     runs-on: ubuntu-latest
     needs: testing
-    if: success ()
+    if: failure ()
     steps:
       - name: security vulnerabilities check
         run: echo "Security vulnerabilities check successful"
