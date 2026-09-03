@@ -42,7 +42,7 @@ jobs:
         run: echo "Security vulnerabilities check successful"
 
   packaging:
-    needs: security
+    needs: [quality, security]
     runs-on: ubuntu-latest
     steps:
       - name: package application
