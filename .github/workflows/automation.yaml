@@ -3,8 +3,8 @@ name: CI/CD Pipeline
 on:
   workflow_dispatch:
     inputs:
-      run-job-3:
-        description: 'Run Job 3'
+      run-quality:
+        description: "Run Quality"
         required: true
         type: boolean
   push:
