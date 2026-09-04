@@ -56,3 +56,11 @@ jobs:
     steps:
       - name: deploy application
         run: echo "Deployment successful"
+
+pipeline-report:
+  needs: [validation, testing, quality, security, packaging, deployment]
+  if: always()
+  runs-on: ubuntu-latest
+  steps:
+      - name: Generate pipeline report
+        run: echo "Pipeline execution completed"
